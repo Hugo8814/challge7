@@ -11,15 +11,16 @@ function App() {
 export default App;
 
 function TipCalculator() {
-  const [tip, setTip] = useState(null);
+  const [tip1, setTip1] = useState(0);
+  const [tip2, setTip2] = useState(0);
   const [bill, setbill] = useState("");
 
   return (
     <div>
       <Bill bill={bill} setbill={setbill} />
-      <Tip>how did you like your service?</Tip>
-      <Tip> how did your friend like your service?</Tip>
-      <Total />
+      <Tip setTip={setTip1}>how did you like your service?</Tip>
+      <Tip setTip={setTip2}> how did your friend like your service?</Tip>
+      <Total bill={bill} tip={tip} />
       <Reset />
     </div>
   );
@@ -54,8 +55,8 @@ function Tip({ children, setTip }) {
   );
 }
 
-function Total() {
-  return <h3>{`Your pay  x ( $a + $b Tip)`} </h3>;
+function Total({ bill, tip }) {
+  return <h3>{`Your pay   ( ${bill} + $b Tip)`} </h3>;
 }
 
 function Reset() {
