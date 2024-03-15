@@ -18,8 +18,12 @@ function TipCalculator() {
   return (
     <div>
       <Bill bill={bill} setbill={setbill} />
-      <Tip setTip={setTip1}>how did you like your service?</Tip>
-      <Tip setTip={setTip2}> how did your friend like your service?</Tip>
+      <Tip tip={tip1} setTip={setTip1}>
+        how did you like your service?
+      </Tip>
+      <Tip tip={tip2} setTip={setTip2}>
+        how did your friend like your service?
+      </Tip>
       <Total bill={bill} tip={tip} />
       <Reset />
     </div>
